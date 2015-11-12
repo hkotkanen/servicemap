@@ -20,6 +20,7 @@ define [
             'keydown .button.close-button': @keyboardHandler @closeService, ['space', 'enter']
             'click input': 'selectLayerInput'
             'click label': 'selectLayerLabel'
+            'click .data-layer a.toggle-layer': 'toggleDataLayer'
         initialize: (opts) ->
             @collection = opts.collection
             @listenTo @collection, 'add', @maximize
@@ -59,6 +60,8 @@ define [
             data
         closeService: (ev) ->
             app.commands.execute 'removeService', $(ev.currentTarget).data('service')
+        toggleDataLayer: (ev) ->
+            app.commands.execute 'addDataLayer', 'popdensity:RTV201412'
         _selectLayer: (value) ->
             p13n.setMapBackgroundLayer value
         selectLayerInput: (ev) ->

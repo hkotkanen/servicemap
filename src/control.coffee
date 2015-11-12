@@ -25,6 +25,7 @@ define [
             @searchResults = appModels.searchResults
             @divisions = appModels.divisions
             @selectedDivision = appModels.selectedDivision
+            @dataLayers = appModels.dataLayers
 
         setMapProxy: (@mapProxy) ->
 
@@ -396,3 +397,6 @@ define [
             query = opts.query
             if query?.service
                 @renderUnitsByServices opts.query.service
+
+        addDataLayer: (layerId) ->
+            @dataLayers.add id: layerId
