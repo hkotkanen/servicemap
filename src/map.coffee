@@ -3,11 +3,13 @@ define [
     'proj4leaflet',
     'underscore',
     'app/base',
+    'app/data-visualization'
 ], (
     leaflet,
     p4j,
     _,
     sm
+    dataviz
 ) ->
 
     RETINA_MODE = window.devicePixelRatio > 1
@@ -218,11 +220,13 @@ define [
                 return 14
 
         @createDataLayer: (id) ->
-            L.tileLayer.wms "http://geoserver.hel.fi/geoserver/popdensity/wms",
-                layers: id,
-                format: 'image/png',
-                transparent: true
+            console.log dataviz.dataLayerPath id
+            # L.tileLayer.wms "http://geoserver.hel.fi/geoserver/popdensity/wms",
+                # layers: id,
+                # format: 'image/png',
+                # transparent: true
                 # TODO: select data set with style: parameter
+            L.tileLayer dataviz.dataLayerPath id
 
     makeDistanceComparator = (p13n) =>
         createFrom = (position) =>

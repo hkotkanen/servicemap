@@ -493,6 +493,8 @@ define [
                 app.commands.execute 'addUnitsWithinBoundingBoxes', bboxes, level
 
         addDataLayer: (layer) ->
+            # console.log 'in map-view.coffee, layer == ' + layer
+            # console.log layer
             lr = map.MapUtils.createDataLayer(layer.get 'id')
             @visualizationLayer.addLayer lr
 

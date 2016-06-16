@@ -493,7 +493,9 @@ requirejs [
             "showServiceMapDescription",
 
             "setMapProxy",
+            
             "addDataLayer",
+            "removeDataLayer",
         ]
         reportError = (position, command) ->
             e = appControl._verifyInvariants()
